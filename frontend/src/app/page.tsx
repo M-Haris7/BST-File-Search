@@ -85,8 +85,7 @@ export default function Home() {
               <div>
                 <h3 className="text-green-600 font-semibold">File Found:</h3>
                 <p className="text-gray-700"><strong>Path:</strong> {result.data?.path}</p>
-                <p 
-                className="text-gray-700"><strong>Size:</strong> {(parseFloat(result.data?.size || "0") / (1024 * 1024)).toFixed(2)} MB</p>
+                <p className="text-gray-700"><strong>Size:</strong> {parseFloat(result.data?.size || "0").toFixed(2)} KB</p>
               </div>
             ) : (
               <p className="text-red-600">{result.message}</p>
