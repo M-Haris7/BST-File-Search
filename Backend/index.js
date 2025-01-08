@@ -35,7 +35,7 @@ app.post("/upload", upload.single("file"), (req, res) => {
 
   console.log(response);
 
-  res.json.status(201).json(response);
+  res.status(201).json(response);
 });
 
 // API to search for a file
@@ -46,7 +46,7 @@ app.get("/search", (req, res) => {
     res.json({ success: true, data: result });
   } 
   else {
-    res.json({ success: false, message: "File not found" });
+    res.status(404).json({ success: false, message: "File not found" });
   }
 });
 
