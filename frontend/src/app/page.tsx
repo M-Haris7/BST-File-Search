@@ -29,9 +29,11 @@ export default function Home() {
       const res = await fetch(`http://localhost:3001/search?key=${query}`);
       const data: SearchResult = await res.json();
       setResult(data);
+      setFile(null);
+      setUploadStatus(null);
     } catch (error) {
       console.error("Error fetching data:", error);
-      setResult({ success: false, message: "Error searching file." });
+      setResult({ success: false, message: "File not found" });
     }
   };
 
@@ -53,6 +55,7 @@ export default function Home() {
       const data: UploadStatus = await res.json();
       setUploadStatus(data);
       setFile(null); // Reset the file input
+      setResult(null); // Reset the search result
     } catch (error) {
       console.error("Error uploading file:", error);
       setUploadStatus({ success: false, message: "Error uploading file." });
